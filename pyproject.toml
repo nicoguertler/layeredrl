@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "layeredrl"
+version = "0.1.0"
+description = "Hierarchical Reinforcement Learning Framework"
+readme = "README.md"
+authors = [
+    {name = "Nico Gürtler", email = "nico.guertler@uni-tuebingen.de"}
+]
+license = {file = "LICENSE"}
+keywords = [
+    "reinforcement learning",
+    "hierarchical reinforcement learning",
+    "model-based reinforcement learning",
+    "skill learning",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "gymnasium[mujoco]",
+    "torch",
+    "tianshou==0.5.1",
+    "matplotlib",
+    "tqdm",
+    "hydra-core",
+    "pyyaml",
+    "wandb",
+    "scipy",
+    "moviepy",
+    "tensordict",
+    "torchrl",
+    "colorednoise",
+    "numpy-quaternion",
+]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=2.0.0",
+    "sphinx-autodoc-typehints>=1.25.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "pre-commit>=3.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["layeredrl*"]
+
+[tool.setuptools.package-data]
+layeredrl = ["**/*.yaml", "**/*.yml"]
